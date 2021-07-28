@@ -1,0 +1,33 @@
+.Card{
+    height: 200px;
+    width: 200px;
+    background-color: #E0ECF8;
+    border-radius: 10px;
+    text-align: center;
+    margin:20px;
+}
+
+.Card .logo{
+    margin-top:20px;
+    margin-bottom: 5px;
+    height: 80px;
+    width: 80px;
+}
+
+.amount{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.Card .dollar{
+    /* background-color: red; */
+    height: 20px;
+    width:20px;
+}
+
+.Card .price{
+    /* background-color: wheat; */
+    height: 20px;
+    width: 20px;
+}

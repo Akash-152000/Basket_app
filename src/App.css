@@ -1,0 +1,25 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.header{
+  background-color:#39BE72;
+  border-radius: 20px;
+  height: 10rem;
+}
+
+.header h1{
+  /* position: absolute; */
+  padding-top: 3rem;
+  text-align: center;
+  font-size: 50px;
+}
+
+.header img{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right:2rem;
+  top:1rem;
+}
