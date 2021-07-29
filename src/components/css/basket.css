@@ -1,0 +1,9 @@
+.basket{
+    list-style-type:none;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right:3rem;
+    top:1rem;
+    background-color: black;
+  }
