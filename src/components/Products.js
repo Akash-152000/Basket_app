@@ -10,25 +10,27 @@ class Products extends Component {
         super(props)
         this.state={
             fruits : fruit,
-            vegtables:vegetable
+            vegtables:vegetable,
         }
         
     }
 
+
     render() {
+        
         return (
             <div className="product">
                 <div className="fruits">
                     <ul className="hs full">
                         {this.state.fruits.map(item =>(
-                            <li className="item"><Card key={item.name} name={item.name} logo={item.logo} price={item.price}/></li>
+                            <li className="item"><Card key={item.id} name={item.name} logo={item.logo} price={item.price} handleClick={this.props.handleClick} myBasket={this.state.myBasket}/></li>
                         ))}
                     </ul>
                 </div>
                 <div className="fruits">
                     <ul className="hs full">
                         {this.state.vegtables.map(item =>(
-                            <li className="item"><Card key={item.name} name={item.name} logo={item.logo} price={item.price}/></li>
+                            <li className="item"><Card key={item.id} name={item.name} logo={item.logo} price={item.price} handleClick={this.props.handleClick}/></li>
                         ))}
                     </ul>
                 </div>
