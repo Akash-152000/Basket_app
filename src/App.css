@@ -5,7 +5,7 @@
 
 .header{
   background-color:#39BE72;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   height: 10rem;
 }
 
@@ -22,4 +22,42 @@
   position: absolute;
   right:2rem;
   top:1rem;
+}
+
+.footer{
+  text-align: center;
+  background-color:#39BE72 ;
+  height: 4.5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.footer img{
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 2.25rem;
+  height: 30px;
+  width: 30px;
+}
+
+.ping{
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  right:2rem;
+  top:1rem;
+}
+
+.basket{
+  list-style-type:none;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  right:3rem;
+  top:1rem;
+  background-color: green;
 }
