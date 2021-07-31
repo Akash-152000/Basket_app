@@ -20,6 +20,7 @@ class App extends Component {
     }
     this.handleClick=this.handleClick.bind(this)
     this.handleClick2=this.handleClick2.bind(this)
+    this.deleteItem=this.deleteItem.bind(this)
   }
 
 
@@ -41,6 +42,17 @@ class App extends Component {
     })
   }
 
+  deleteItem = (arr,val) =>{
+    console.log("clicked",arr,val);
+        let index = arr.indexOf(val);
+        if(index >-1){
+            arr.splice(index,1);
+        }
+        this.setState({
+          items:arr
+        })
+  }
+
   render() {
     return (
           <div className="App">
@@ -59,7 +71,7 @@ class App extends Component {
             </div>
             <div>
               {this.state.click?
-                <Basket items={this.state.items}/>
+                <Basket myBasket={this.state.myBasket} items={this.state.items} deleteItem={this.deleteItem}/>
                 :<p></p>
               }
             </div>
