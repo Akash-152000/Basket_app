@@ -14,7 +14,9 @@ class App extends Component {
     super(props)
     this.state={
         myBasket:[],
-        click:false
+        items:[],
+        click:false,
+        price:0
     }
     this.handleClick=this.handleClick.bind(this)
     this.handleClick2=this.handleClick2.bind(this)
@@ -23,7 +25,13 @@ class App extends Component {
 
   handleClick=(name,price)=>{
     this.setState({
-        myBasket:[...this.state.myBasket,{name:name,price:price}]
+        myBasket:[...this.state.myBasket,{name:name,price:price}],
+    })
+    this.setState({
+      items:[...this.state.items,name]
+    })
+    this.setState({
+      price:this.state.price+price
     })
   }
 
@@ -34,7 +42,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.myBasket)
     return (
           <div className="App">
             <div className="header">
@@ -43,13 +50,16 @@ class App extends Component {
             </div>
             <div >
                     {this.state.myBasket.length>0?
+                      <div>
                         <p className="ping"> {this.state.myBasket.length}</p>
+                        <p className="total_price">{this.state.price}</p>
+                      </div>
                         :<p></p>
                     }
             </div>
             <div>
               {this.state.click?
-                <Basket className="basket" myBasket={this.state.myBasket}/>
+                <Basket items={this.state.items}/>
                 :<p></p>
               }
             </div>
