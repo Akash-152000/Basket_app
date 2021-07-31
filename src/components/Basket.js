@@ -6,19 +6,19 @@ class Basket extends Component {
     constructor(props){
         super(props)
         this.state={
-            // items:[]
+
         }
     }
-
     render() {
+        console.log("unique",[...new Set(this.props.items)])
+        console.log("items",this.props.items)
         return (
-            <div className="basket">
-                    <p><img src={minus}/>{((JSON.stringify(this.props.items.reduce((acc, val) => {
-                        acc[val] = acc[val] === undefined ? 1 : acc[val] += 1;
-                        return acc;
-                      }, {})).replace(/[{}]/g, '')).replace(/["]/g,'')).replace(/[,]/g,"\n")  }{"\n"}</p><br></br>
+           <div className="basket">
+                {[...new Set(this.props.items)].map(item=>(
+                <p><img src={minus} onClick={()=>{this.props.deleteItem(this.props.items,item)}}/>{item}  {this.props.items.filter(elem => elem === item).length}</p>
+                ))}
                 
-            </div>
+            </div> 
         );
     }
 }
