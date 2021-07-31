@@ -13,12 +13,17 @@ class Basket extends Component {
         console.log("unique",[...new Set(this.props.items)])
         console.log("items",this.props.items)
         return (
-           <div className="basket">
-                {[...new Set(this.props.items)].map(item=>(
-                <p><img src={minus} onClick={()=>{this.props.deleteItem(this.props.items,item)}}/>{item}  {this.props.items.filter(elem => elem === item).length}</p>
-                ))}
-                
+            <div className="basket">
+                <div>
+                    {[...new Set(this.props.items)].map(item=>(
+                    <p><img src={minus} onClick={()=>{this.props.deleteItem(this.props.items,item)}}/>{item}  {this.props.items.filter(elem => elem === item).length}</p>
+                    ))}
+                </div>
+                <div className="delete">
+                    <button onClick={this.props.deleteBasket}>Delete</button>
+                </div>
             </div> 
+            
         );
     }
 }
