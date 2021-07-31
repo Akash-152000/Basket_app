@@ -6,7 +6,7 @@ import instagram from './instagram.png'
 import twitter from './twitter.png'
 import Products from './components/Products';
 import Basket from './components/Basket';
-
+import dollar from './components/dollar.png'
 
 class App extends Component {
 
@@ -21,6 +21,7 @@ class App extends Component {
     this.handleClick=this.handleClick.bind(this)
     this.handleClick2=this.handleClick2.bind(this)
     this.deleteItem=this.deleteItem.bind(this)
+    this.deleteBasket = this.deleteBasket.bind(this)
   }
 
 
@@ -51,6 +52,17 @@ class App extends Component {
         this.setState({
           items:arr
         })
+        this.setState({
+          price:this.state.price - this.state.myBasket.find(x=>x.name===val).price
+        })
+  }
+
+  deleteBasket = () =>{
+    console.log("delete it")
+    this.setState({
+      myBasket:[],
+      items:[]
+    })
   }
 
   render() {
@@ -63,15 +75,16 @@ class App extends Component {
             <div >
                     {this.state.myBasket.length>0?
                       <div>
-                        <p className="ping"> {this.state.myBasket.length}</p>
-                        <p className="total_price">{this.state.price}</p>
+                        <p> {this.state.items.length==0?<p></p>:<p className="ping">{this.state.items.length}</p>}</p>
+                        <p >{this.state.price==0?<p></p>:<p className="total_price"><img src={dollar}/>{this.state.price}</p>}</p>
                       </div>
                         :<p></p>
                     }
+                    
             </div>
             <div>
               {this.state.click?
-                <Basket myBasket={this.state.myBasket} items={this.state.items} deleteItem={this.deleteItem}/>
+                <Basket items={this.state.items} deleteItem={this.deleteItem} deleteBasket={this.deleteBasket}/>
                 :<p></p>
               }
             </div>
