@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './basket.png'
 import facebook from './facebook.png'
 import instagram from './instagram.png'
 import twitter from './twitter.png'
 import Products from './components/Products';
 import Basket from './components/Basket';
 import dollar from './components/dollar.png'
+import cart from './shopping-cart.png'
 
 class App extends Component {
 
@@ -44,7 +44,6 @@ class App extends Component {
   }
 
   deleteItem = (arr,val) =>{
-    console.log("clicked",arr,val);
         let index = arr.indexOf(val);
         if(index >-1){
             arr.splice(index,1);
@@ -61,7 +60,8 @@ class App extends Component {
     console.log("delete it")
     this.setState({
       myBasket:[],
-      items:[]
+      items:[],
+      price:0
     })
   }
 
@@ -70,13 +70,13 @@ class App extends Component {
           <div className="App">
             <div className="header">
               <h1>Basket</h1>  
-              <img src={logo} alt="Logo" onClick={this.handleClick2}/>
+              <img className="cart" src={cart} alt="Logo" onClick={this.handleClick2}/>
             </div>
             <div >
                     {this.state.myBasket.length>0?
                       <div>
-                        <p> {this.state.items.length==0?<p></p>:<p className="ping">{this.state.items.length}</p>}</p>
-                        <p >{this.state.price==0?<p></p>:<p className="total_price"><img src={dollar}/>{this.state.price}</p>}</p>
+                        <p> {this.state.items.length===0?<p></p>:<p className="ping">{this.state.items.length}</p>}</p>
+                        <p >{this.state.price===0?<p></p>:<p className="total_price"><img src={dollar}/>{this.state.price}</p>}</p>
                       </div>
                         :<p></p>
                     }
